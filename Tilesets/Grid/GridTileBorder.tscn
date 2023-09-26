@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b56k3kcpbnrtx"]
+
+[ext_resource type="Script" path="res://Tilesets/Grid/GridTileBorder.gd" id="1_idcvj"]
+[ext_resource type="Texture2D" uid="uid://budhswdr4tvsm" path="res://Tilesets/Grid/obstacle.png" id="1_tvy61"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1sbwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns4w4"]
+size = Vector2(56, 56)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-96, -32)
+script = ExtResource("1_idcvj")
+
+[node name="Obstacle" type="Sprite2D" parent="."]
+position = Vector2(96, 32)
+texture = ExtResource("1_tvy61")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.054902, 0.0705882, 0.262745, 0.407843)
+texture = SubResource("PlaceholderTexture2D_1sbwy")
+polygon = PackedVector2Array(64, 0, 64, 64, 128, 64, 128, 0)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(96, 32)
+shape = SubResource("RectangleShape2D_ns4w4")

@@ -1,0 +1,69 @@
+[gd_scene load_steps=17 format=3 uid="uid://cq3dua3n5emnu"]
+
+[ext_resource type="PackedScene" uid="uid://ci2c4sh4lj5on" path="res://Tilesets/Grid/GridTileActor.tscn" id="1_x6wom"]
+[ext_resource type="PackedScene" uid="uid://xynoxsvs8b8a" path="res://Tilesets/Grid/GridTileObstacle.tscn" id="2_nt0on"]
+[ext_resource type="PackedScene" uid="uid://eqhgymibp56j" path="res://Tilesets/Grid/GridTileObject.tscn" id="3_g5ns4"]
+[ext_resource type="PackedScene" uid="uid://b56k3kcpbnrtx" path="res://Tilesets/Grid/GridTileBorder.tscn" id="4_1gjya"]
+[ext_resource type="PackedScene" uid="uid://b50vnn5vbxn7x" path="res://Tilesets/Grid/GridTiles.tscn" id="5_0dbxc"]
+[ext_resource type="Script" path="res://Tilesets/Grid/grid.gd" id="6_o7w31"]
+[ext_resource type="PackedScene" uid="uid://dd5p4dphm5cia" path="res://Enemies/enemy_spawner.tscn" id="6_rug3r"]
+[ext_resource type="PackedScene" uid="uid://dy52p3j0t425w" path="res://Enemies/enemy_spawner_down.tscn" id="7_inav7"]
+[ext_resource type="PackedScene" uid="uid://dvaw4gn6xvkcb" path="res://Pawns/Actor.tscn" id="7_wj5kl"]
+[ext_resource type="PackedScene" uid="uid://d25fbxnddwnri" path="res://Enemies/enemy_spawner_left.tscn" id="8_6xgv7"]
+[ext_resource type="PackedScene" uid="uid://e5pq7kbhi38y" path="res://Enemies/enemy_spawner_up.tscn" id="9_1edby"]
+[ext_resource type="PackedScene" uid="uid://dbbgkj51uh2l5" path="res://bullet.tscn" id="12_7q000"]
+[ext_resource type="PackedScene" uid="uid://b0ouxp2at238m" path="res://Enemies/enemy_spawner_signaler.tscn" id="13_kbtid"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_82eka"]
+scenes/0/scene = ExtResource("1_x6wom")
+scenes/1/scene = ExtResource("2_nt0on")
+scenes/2/scene = ExtResource("3_g5ns4")
+scenes/3/scene = ExtResource("4_1gjya")
+scenes/4/scene = ExtResource("5_0dbxc")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pjb5l"]
+scenes/1/scene = ExtResource("6_rug3r")
+scenes/2/scene = ExtResource("7_inav7")
+scenes/3/scene = ExtResource("8_6xgv7")
+scenes/4/scene = ExtResource("9_1edby")
+
+[sub_resource type="TileSet" id="TileSet_0g0h6"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Actors"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_1/mode = 0
+terrain_set_1/terrain_0/name = "Objects 0"
+terrain_set_1/terrain_0/color = Color(0.501961, 0.345098, 0.933333, 1)
+terrain_set_2/mode = 0
+terrain_set_2/terrain_0/name = "Obstacles"
+terrain_set_2/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetScenesCollectionSource_82eka")
+sources/1 = SubResource("TileSetScenesCollectionSource_pjb5l")
+
+[node name="level1" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_0g0h6")
+format = 2
+layer_0/tile_data = PackedInt32Array(393228, 0, 196608, 327692, 0, 196608, 262156, 0, 196608, 196620, 0, 196608, 131084, 0, 196608, 131083, 0, 196608, 131082, 0, 196608, 131081, 0, 196608, 131080, 0, 196608, 131079, 0, 196608, 131078, 0, 196608, 196614, 0, 196608, 262150, 0, 196608, 327686, 0, 196608, 393222, 0, 196608, 393223, 0, 196608, 393224, 0, 196608, 393225, 0, 196608, 393226, 0, 196608, 393227, 0, 196608, 1048585, 1, 131072, 1048583, 1, 131072, 196636, 1, 196608, 262172, 1, 196608, 327669, 1, 65536, 393205, 1, 65536, -458744, 1, 262144, -458743, 1, 262144, -458741, 1, 262144, 1048587, 1, 131072, 327708, 1, 196608, 262133, 1, 65536, -458745, 1, 262144, 327690, 0, 65536, 196618, 0, 65536, 1048584, 1, 131072)
+layer_1/name = ""
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("6_o7w31")
+
+[node name="Actor" parent="TileMap" instance=ExtResource("7_wj5kl")]
+position = Vector2(544, 288)
+bulletScene = ExtResource("12_7q000")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 320)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Entities" type="Node" parent="." groups=["entities"]]
+
+[node name="EnemySpawnerSignaler" parent="." groups=["spawnersignaler"] instance=ExtResource("13_kbtid")]

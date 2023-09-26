@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvaw4gn6xvkcb"]
+
+[ext_resource type="Texture2D" uid="uid://dahk0kmg0pibq" path="res://Pawns/Sprites/character.png" id="1_2vjra"]
+[ext_resource type="Script" path="res://Pawns/Actor.gd" id="1_p8gef"]
+
+[sub_resource type="Animation" id="Animation_hxvvy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v6lxr"]
+resource_name = "bump"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.5, -9), Vector2(6.5, 2.5), Vector2(-11.5, 8.5), Vector2(4, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7vqt7"]
+resource_name = "walk"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 0.303, 2.6, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -20), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ay2c"]
+_data = {
+"RESET": SubResource("Animation_hxvvy"),
+"bump": SubResource("Animation_v6lxr"),
+"walk": SubResource("Animation_7vqt7")
+}
+
+[node name="Actor" type="Node2D"]
+z_index = 1
+position = Vector2(32, 32)
+script = ExtResource("1_p8gef")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ay2c")
+}
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_2vjra")

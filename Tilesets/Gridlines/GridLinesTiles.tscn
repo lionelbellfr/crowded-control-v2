@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ik06qsck70uq"]
+
+[ext_resource type="Texture2D" uid="uid://dmgam280qww0c" path="res://Tilesets/Gridlines/grid_lines.png" id="1_cwk3g"]
+
+[node name="TileSet" type="Node2D"]
+
+[node name="Grass" type="Sprite2D" parent="."]
+texture = ExtResource("1_cwk3g")

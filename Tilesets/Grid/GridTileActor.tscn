@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci2c4sh4lj5on"]
+
+[ext_resource type="Texture2D" uid="uid://d3yd3bieffdst" path="res://Tilesets/Grid/actor.png" id="1_xqjs0"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-32, -32)
+
+[node name="Actor" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+texture = ExtResource("1_xqjs0")

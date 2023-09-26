@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dblkutuj2lbxw"]
+
+[ext_resource type="Texture2D" uid="uid://c0y6t2pftrpqk" path="res://Pawns/Sprites/character_grey.png" id="1_4woow"]
+[ext_resource type="Script" path="res://Enemies/enemy_1.gd" id="1_dfrxf"]
+[ext_resource type="Script" path="res://Enemies/HurtBox.gd" id="2_demhe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsm6t"]
+size = Vector2(66, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11njb"]
+size = Vector2(66, 66)
+
+[node name="Enemy1" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_dfrxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wsm6t")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+monitorable = false
+script = ExtResource("2_demhe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_11njb")
+debug_color = Color(0.819608, 0.278431, 0.741176, 0.419608)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4woow")

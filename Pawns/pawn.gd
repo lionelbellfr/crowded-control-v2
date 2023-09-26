@@ -1,0 +1,4 @@
+extends Node2D
+
+enum CELL_TYPES{ ACTOR, OBSTACLE, OBJECT, BORDER }
+@export var type = CELL_TYPES.ACTOR as CELL_TYPES

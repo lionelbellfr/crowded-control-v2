@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnvhg862u80bk"]
+
+[ext_resource type="Script" path="res://Tilesets/Grid/grid.gd" id="10_s1gc5"]
+[ext_resource type="PackedScene" uid="uid://dvaw4gn6xvkcb" path="res://Pawns/Actor.tscn" id="11_8fwrd"]
+[ext_resource type="PackedScene" uid="uid://dbbgkj51uh2l5" path="res://bullet.tscn" id="12_tdtyn"]
+[ext_resource type="PackedScene" uid="uid://b0ouxp2at238m" path="res://Enemies/enemy_spawner_signaler.tscn" id="13_wn2fc"]
+
+[sub_resource type="TileSet" id="TileSet_0g0h6"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Actors"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_1/mode = 0
+terrain_set_1/terrain_0/name = "Objects 0"
+terrain_set_1/terrain_0/color = Color(0.501961, 0.345098, 0.933333, 1)
+terrain_set_2/mode = 0
+terrain_set_2/terrain_0/name = "Obstacles"
+terrain_set_2/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+
+[node name="level3" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_0g0h6")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048585, 1, 131072, 1048583, 1, 131072, 262172, 1, 196608, 327669, 1, 65536, 393205, 1, 65536, -458744, 1, 262144, -458743, 1, 262144, -458741, 1, 262144, 1048587, 1, 131072, 327708, 1, 196608, 458741, 1, 65536, 1048584, 1, 131072, 1048582, 1, 131072, -458746, 1, 262144, -458742, 1, 262144, 327686, 0, 65536, 327687, 0, 65536, 327688, 0, 65536, 327689, 0, 65536, 327690, 0, 65536, 196616, 0, 196608, 196617, 0, 196608, 196618, 0, 196608, 196619, 0, 196608, 196620, 0, 196608, 262156, 0, 196608, 327692, 0, 196608, 393228, 0, 196608, 458764, 0, 196608, 458763, 0, 196608, 458762, 0, 196608, 458761, 0, 196608, 458760, 0, 196608, 458759, 0, 196608, 458758, 0, 196608, 458757, 0, 196608, 458756, 0, 196608, 393220, 0, 196608, 327684, 0, 196608, 262148, 0, 196608, 196612, 0, 196608, 196613, 0, 196608, 196614, 0, 196608, 196615, 0, 196608, 393244, 1, 196608, -458745, 1, 262144, -458747, 1, 262144, 1048581, 1, 131072, 1048586, 1, 131072)
+layer_1/name = ""
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("10_s1gc5")
+
+[node name="Actor" parent="TileMap" instance=ExtResource("11_8fwrd")]
+position = Vector2(544, 288)
+bulletScene = ExtResource("12_tdtyn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 320)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Entities" type="Node" parent="." groups=["entities"]]
+
+[node name="EnemySpawnerSignaler" parent="." groups=["spawnersignaler"] instance=ExtResource("13_wn2fc")]

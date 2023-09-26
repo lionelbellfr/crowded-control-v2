@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd5p4dphm5cia"]
+
+[ext_resource type="Script" path="res://Spawner.gd" id="1_lalq8"]
+[ext_resource type="Texture2D" uid="uid://bcix1rdqokgby" path="res://Enemies/Arrow.png" id="2_jr1yx"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_lalq8")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-32, -32)
+color = Color(1, 1, 1, 0.290196)
+polygon = PackedVector2Array(0, 0, 0, 64, 64, 64, 64, 0)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+texture = ExtResource("2_jr1yx")

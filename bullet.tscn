@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbbgkj51uh2l5"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_u4afy"]
+[ext_resource type="Script" path="res://HitBox.gd" id="2_bulw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rle2t"]
+size = Vector2(24, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0l5o"]
+size = Vector2(24, 20)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_u4afy")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("2_bulw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_rle2t")
+
+[node name="ImpactDetector" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactDetector"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_x0l5o")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-32, -32)
+polygon = PackedVector2Array(24, 24, 40, 24, 48, 32, 40, 40, 24, 40)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
