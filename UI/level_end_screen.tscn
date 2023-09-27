@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm1qar2tihfrn"]
+
+[ext_resource type="Script" path="res://LevelEndScreen.gd" id="1_4dhlx"]
+
+[node name="LevelEndScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4dhlx")
+
+[node name="WinScreen" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WinScreen/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="WinScreen/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 46
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="WinScreen/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 26
+text = "Next Level"
+
+[node name="ButtonWinQuit" type="Button" parent="WinScreen/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 26
+text = "Quit to Main Menu"
+
+[node name="LoseScreen" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="LoseScreen"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LoseScreen/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoseScreen/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="LoseScreen/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 46
+text = "You Lose...Retry?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRetry" type="Button" parent="LoseScreen/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 26
+text = "Retry!"
+
+[node name="ButtonLoseQuit" type="Button" parent="LoseScreen/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 26
+text = "Quit to Main Menu"
+
+[connection signal="pressed" from="WinScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonNext" to="." method="_on_button_next_pressed"]
+[connection signal="toggled" from="WinScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonWinQuit" to="." method="_on_button_win_quit_toggled"]
+[connection signal="pressed" from="LoseScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="LoseScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonLoseQuit" to="." method="_on_button_lose_quit_pressed"]

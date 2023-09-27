@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cq3dua3n5emnu"]
+[gd_scene load_steps=20 format=3 uid="uid://cq3dua3n5emnu"]
 
 [ext_resource type="PackedScene" uid="uid://ci2c4sh4lj5on" path="res://Tilesets/Grid/GridTileActor.tscn" id="1_x6wom"]
 [ext_resource type="PackedScene" uid="uid://xynoxsvs8b8a" path="res://Tilesets/Grid/GridTileObstacle.tscn" id="2_nt0on"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://e5pq7kbhi38y" path="res://Enemies/enemy_spawner_up.tscn" id="9_1edby"]
 [ext_resource type="PackedScene" uid="uid://dbbgkj51uh2l5" path="res://bullet.tscn" id="12_7q000"]
 [ext_resource type="PackedScene" uid="uid://b0ouxp2at238m" path="res://Enemies/enemy_spawner_signaler.tscn" id="13_kbtid"]
+[ext_resource type="PackedScene" uid="uid://dm1qar2tihfrn" path="res://UI/level_end_screen.tscn" id="15_a7p38"]
 [ext_resource type="PackedScene" uid="uid://bjv0maktpovag" path="res://UI/pause_menu.tscn" id="15_gpoon"]
+[ext_resource type="PackedScene" uid="uid://h4jx15ke7gv2" path="res://UI/level_interface.tscn" id="16_o55t3"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_82eka"]
 scenes/0/scene = ExtResource("1_x6wom")
@@ -77,3 +79,9 @@ process_mode = 1
 [node name="PauseMenu" parent="." instance=ExtResource("15_gpoon")]
 process_mode = 3
 visible = false
+
+[node name="LevelInterface" parent="." instance=ExtResource("16_o55t3")]
+
+[node name="LevelEndScreen" parent="." instance=ExtResource("15_a7p38")]
+visible = false
+z_index = 3
