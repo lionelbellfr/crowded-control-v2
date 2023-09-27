@@ -5,7 +5,7 @@ extends Control
 @onready var button_quit = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonQuit
 
 func _on_button_play_pressed():
-	get_tree().change_scene_to_file("res://levels/level_1.tscn")
+	get_tree().change_scene_to_file("res://UI/level_select.tscn")
 	pass # Replace with function body.
 
 
