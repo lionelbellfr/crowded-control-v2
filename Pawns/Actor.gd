@@ -9,6 +9,9 @@ var shoot_cooldown = false
 func _ready():
 	update_look_direction(Vector2(1, 0))
 
+func _input(event):
+	if event.is_action_pressed("debug"):
+		print(get_owner().name)
 
 func _process(delta):
 	get_shoot_input()

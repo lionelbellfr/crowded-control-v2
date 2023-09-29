@@ -9,10 +9,7 @@ static var rush_mode = false
 var signaler_node
 
 var spaceship 
-var move_speed = 60
-var move_speed_x = 60
-var tile_size = 32
-var offset = 64
+var move_speed = 100
 
 var max_health = 2
 var current_health
@@ -30,5 +27,10 @@ func _process(delta):
 func take_damage(body : Node):
 	if body.get_parent().is_in_group("spaceship"):
 		signaler_node.spaceship_health -= 1
-	signaler_node.num_defeated_enemies += 1
-	queue_free()
+		signaler_node.num_defeated_enemies += 1
+		queue_free()
+	else:
+		max_health -= 1
+		if max_health <= 0:
+			signaler_node.num_defeated_enemies += 1
+			queue_free()

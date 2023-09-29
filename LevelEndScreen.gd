@@ -4,12 +4,15 @@ extends Control
 @onready var win_screen = $WinScreen
 @onready var lose_screen = $LoseScreen
 static var level_ended = false
+var next_level_number: String
 
 func _ready():
 	level_ended = false
 	var signaler = get_tree().get_first_node_in_group("spawnersignaler")
 	signaler.defeated_enemies.connect(_on_defeated_enemies)
 	signaler.lost_spaceship.connect(_on_lost_spaceship)
+	next_level_number = String.num_int64(int(get_owner().name.trim_prefix("level")) + 1)
+	
 
 func _on_defeated_enemies():
 	level_ended = true
@@ -28,6 +31,8 @@ func _on_lost_spaceship():
 
 
 func _on_button_next_pressed():
+	
+	get_tree().change_scene_to_file("res://levels/level_" + next_level_number + ".tscn")
 	level_ended = false
 	get_tree().paused = false
 

@@ -1,9 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce1rmbok54mxr"]
+[gd_scene load_steps=20 format=3 uid="uid://myq3u20yksow"]
 
-[ext_resource type="Script" path="res://Tilesets/Grid/grid.gd" id="10_jcsea"]
-[ext_resource type="PackedScene" uid="uid://dvaw4gn6xvkcb" path="res://Pawns/Actor.tscn" id="11_bkl5l"]
-[ext_resource type="PackedScene" uid="uid://dbbgkj51uh2l5" path="res://bullet.tscn" id="12_c8ogk"]
-[ext_resource type="PackedScene" uid="uid://b0ouxp2at238m" path="res://Enemies/enemy_spawner_signaler.tscn" id="13_nevio"]
+[ext_resource type="PackedScene" uid="uid://ci2c4sh4lj5on" path="res://Tilesets/Grid/GridTileActor.tscn" id="1_3v32o"]
+[ext_resource type="PackedScene" uid="uid://xynoxsvs8b8a" path="res://Tilesets/Grid/GridTileObstacle.tscn" id="2_mpayv"]
+[ext_resource type="PackedScene" uid="uid://eqhgymibp56j" path="res://Tilesets/Grid/GridTileObject.tscn" id="3_qh03u"]
+[ext_resource type="PackedScene" uid="uid://b56k3kcpbnrtx" path="res://Tilesets/Grid/GridTileBorder.tscn" id="4_wyobw"]
+[ext_resource type="PackedScene" uid="uid://b50vnn5vbxn7x" path="res://Tilesets/Grid/GridTiles.tscn" id="5_j6is2"]
+[ext_resource type="PackedScene" uid="uid://dd5p4dphm5cia" path="res://Enemies/enemy_spawner.tscn" id="6_hnde4"]
+[ext_resource type="PackedScene" uid="uid://dy52p3j0t425w" path="res://Enemies/enemy_spawner_down.tscn" id="7_1r3l6"]
+[ext_resource type="PackedScene" uid="uid://d25fbxnddwnri" path="res://Enemies/enemy_spawner_left.tscn" id="8_72g6w"]
+[ext_resource type="PackedScene" uid="uid://e5pq7kbhi38y" path="res://Enemies/enemy_spawner_up.tscn" id="9_m46v2"]
+[ext_resource type="Script" path="res://Tilesets/Grid/grid.gd" id="10_k8g5j"]
+[ext_resource type="PackedScene" uid="uid://dvaw4gn6xvkcb" path="res://Pawns/Actor.tscn" id="11_60try"]
+[ext_resource type="PackedScene" uid="uid://dbbgkj51uh2l5" path="res://bullet.tscn" id="12_ptcao"]
+[ext_resource type="PackedScene" uid="uid://b0ouxp2at238m" path="res://Enemies/enemy_spawner_signaler.tscn" id="13_58sfc"]
+[ext_resource type="PackedScene" uid="uid://bjv0maktpovag" path="res://UI/pause_menu.tscn" id="14_0xpiw"]
+[ext_resource type="PackedScene" uid="uid://h4jx15ke7gv2" path="res://UI/level_interface.tscn" id="15_u0h1a"]
+[ext_resource type="PackedScene" uid="uid://dm1qar2tihfrn" path="res://UI/level_end_screen.tscn" id="16_l0f03"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_82eka"]
+scenes/0/scene = ExtResource("1_3v32o")
+scenes/1/scene = ExtResource("2_mpayv")
+scenes/2/scene = ExtResource("3_qh03u")
+scenes/3/scene = ExtResource("4_wyobw")
+scenes/4/scene = ExtResource("5_j6is2")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pjb5l"]
+scenes/1/scene = ExtResource("6_hnde4")
+scenes/2/scene = ExtResource("7_1r3l6")
+scenes/3/scene = ExtResource("8_72g6w")
+scenes/4/scene = ExtResource("9_m46v2")
 
 [sub_resource type="TileSet" id="TileSet_0g0h6"]
 tile_size = Vector2i(64, 64)
@@ -16,13 +41,17 @@ terrain_set_1/terrain_0/color = Color(0.501961, 0.345098, 0.933333, 1)
 terrain_set_2/mode = 0
 terrain_set_2/terrain_0/name = "Obstacles"
 terrain_set_2/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetScenesCollectionSource_82eka")
+sources/1 = SubResource("TileSetScenesCollectionSource_pjb5l")
 
 [node name="level2" type="Node"]
+process_mode = 3
 
 [node name="TileMap" type="TileMap" parent="."]
+process_mode = 1
 tile_set = SubResource("TileSet_0g0h6")
 format = 2
-layer_0/tile_data = PackedInt32Array(1048585, 1, 131072, 1048583, 1, 131072, 196636, 1, 196608, 262172, 1, 196608, 327669, 1, 65536, 393205, 1, 65536, -458744, 1, 262144, -458743, 1, 262144, -458741, 1, 262144, 1048587, 1, 131072, 327708, 1, 196608, 131078, 0, 196608, 196614, 0, 196608, 131083, 0, 196608, 196619, 0, 196608, 393227, 0, 196608, 393222, 0, 196608, 458759, 0, 196608, 458760, 0, 196608, 458761, 0, 196608, 458762, 0, 196608, 458758, 0, 196608, 458763, 0, 196608, 131082, 0, 196608, 131081, 0, 196608, 131080, 0, 196608, 131079, 0, 196608, 262156, 0, 196608, 327692, 0, 196608, 196620, 0, 196608, 393228, 0, 196608, 393221, 0, 196608, 327685, 0, 196608, 262149, 0, 196608, 196613, 0, 196608, 262151, 0, 65536, 196615, 0, 65536, 393226, 0, 65536, 327690, 0, 65536, 458741, 1, 65536, 1048584, 1, 131072, 1048582, 1, 131072, -458746, 1, 262144, -458742, 1, 262144)
+layer_0/tile_data = PackedInt32Array(196636, 1, 196608, 262172, 1, 196608, 327669, 1, 65536, 393205, 1, 65536, -458744, 1, 262144, -458743, 1, 262144, 327708, 1, 196608, 262133, 1, 65536, -458745, 1, 262144, 327694, 0, 196608, 262158, 0, 196608, 196622, 0, 196608, 393230, 0, 196608, 131083, 0, 196608, 458758, 0, 196608, 458765, 0, 196608, 458764, 0, 196608, 458763, 0, 196608, 458762, 0, 196608, 458761, 0, 196608, 458760, 0, 196608, 458759, 0, 196608, 131078, 0, 196608, 131079, 0, 196608, 131080, 0, 196608, 131081, 0, 196608, 131082, 0, 196608, 131084, 0, 196608, 131085, 0, 196608, 196619, 0, 65536, 262154, 0, 65536, 327689, 0, 65536, 393224, 0, 65536, 393221, 0, 196608, 327685, 0, 196608, 262149, 0, 196608, 196613, 0, 196608, 393244, 1, 196608, -458746, 1, 262144, -458742, 1, 262144, -458740, 1, 262144, -458739, 1, 262144, 458741, 1, 65536, 1048582, 1, 131072, 1048583, 1, 131072, 1048585, 1, 131072, 1048586, 1, 131072, 1048587, 1, 131072, 1048588, 1, 131072, 1048589, 1, 131072, 458757, 0, 196608, 458766, 0, 196608, 131086, 0, 196608, 131077, 0, 196608)
 layer_1/name = ""
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -30,16 +59,43 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array()
-script = ExtResource("10_jcsea")
+script = ExtResource("10_k8g5j")
 
-[node name="Actor" parent="TileMap" instance=ExtResource("11_bkl5l")]
+[node name="Actor" parent="TileMap" instance=ExtResource("11_60try")]
 position = Vector2(544, 288)
-bulletScene = ExtResource("12_c8ogk")
+bulletScene = ExtResource("12_ptcao")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
 position = Vector2(576, 320)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Entities" type="Node" parent="." groups=["entities"]]
+process_mode = 1
 
-[node name="EnemySpawnerSignaler" parent="." groups=["spawnersignaler"] instance=ExtResource("13_nevio")]
+[node name="EnemySpawnerSignaler" parent="." groups=["spawnersignaler"] instance=ExtResource("13_58sfc")]
+process_mode = 1
+enemies_to_spawn = 20
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_0xpiw")]
+process_mode = 3
+visible = false
+mouse_filter = 1
+
+[node name="LevelInterface" parent="." instance=ExtResource("15_u0h1a")]
+offset_left = -574.0
+offset_top = -328.0
+offset_right = -574.0
+offset_bottom = -328.0
+scale = Vector2(1.99834, 1.99834)
+mouse_filter = 1
+
+[node name="LevelEndScreen" parent="." instance=ExtResource("16_l0f03")]
+visible = false
+z_index = 3
+offset_left = -574.0
+offset_top = -328.0
+offset_right = -574.0
+offset_bottom = -328.0
+scale = Vector2(1.99929, 1.99929)
+mouse_filter = 1

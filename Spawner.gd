@@ -3,9 +3,6 @@ extends Node2D
 var enemy_scene = preload("res://Enemies/enemy_1.tscn")
 @export var enemy_direction = Vector2.RIGHT
 
-var tile_size = 32
-var offset = 64
-
 func _ready():
 	add_to_group("spawners")
 	var spawner_signaler_node = get_tree().get_first_node_in_group("spawnersignaler")
