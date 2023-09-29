@@ -5,13 +5,18 @@ extends Node2D
 @export var lifetime = 3.0
 
 var direction = Vector2.ZERO # this variable will be set by player, not here
+var rush_bullet = false
 
 @onready var timer = $Timer
 @onready var hitbox = $HitBox
 @onready var sprite = $Polygon2D
+@onready var rush_sprite = $Polygon2D2
 @onready var impact_detector = $ImpactDetector
 
 func _ready():
+	if MainSpawner.rush_mode:
+		rush_sprite.visible = true
+		sprite.visible = false
 	top_level = true # so that it doesn't connect to the player, but is independent of it
 	look_at(position + direction) # so that it looks the right way
 	
@@ -20,6 +25,8 @@ func _ready():
 	
 
 func _physics_process(delta):
+	if MainSpawner.rush_mode:
+		rush_bullet = true
 	position += direction * speed * delta
 
 func _on_impact(body : Node):

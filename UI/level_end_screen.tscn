@@ -99,6 +99,6 @@ theme_override_font_sizes/font_size = 26
 text = "Quit to Main Menu"
 
 [connection signal="pressed" from="WinScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonNext" to="." method="_on_button_next_pressed"]
-[connection signal="toggled" from="WinScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonWinQuit" to="." method="_on_button_win_quit_toggled"]
+[connection signal="pressed" from="WinScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonWinQuit" to="." method="_on_button_win_quit_pressed"]
 [connection signal="pressed" from="LoseScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_pressed"]
 [connection signal="pressed" from="LoseScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonLoseQuit" to="." method="_on_button_lose_quit_pressed"]

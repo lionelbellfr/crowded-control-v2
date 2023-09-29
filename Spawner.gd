@@ -21,3 +21,5 @@ func _on_spawn_enemy(spawner):
 		enemy_container.add_child(enemy)
 		enemy.global_position.y = self.global_position.y
 		enemy.global_position.x = self.global_position.x
+		if MainSpawner.rush_mode:
+			enemy.move_speed *= 2

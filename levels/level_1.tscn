@@ -75,13 +75,27 @@ process_mode = 1
 
 [node name="EnemySpawnerSignaler" parent="." groups=["spawnersignaler"] instance=ExtResource("13_kbtid")]
 process_mode = 1
+enemies_to_spawn = 20
 
 [node name="PauseMenu" parent="." instance=ExtResource("15_gpoon")]
 process_mode = 3
 visible = false
+mouse_filter = 1
 
 [node name="LevelInterface" parent="." instance=ExtResource("16_o55t3")]
+offset_left = -574.0
+offset_top = -328.0
+offset_right = -574.0
+offset_bottom = -328.0
+scale = Vector2(1.99834, 1.99834)
+mouse_filter = 1
 
 [node name="LevelEndScreen" parent="." instance=ExtResource("15_a7p38")]
 visible = false
 z_index = 3
+offset_left = -574.0
+offset_top = -328.0
+offset_right = -574.0
+offset_bottom = -328.0
+scale = Vector2(1.99929, 1.99929)
+mouse_filter = 1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b50vnn5vbxn7x"]
 
 [ext_resource type="Texture2D" uid="uid://d3yd3bieffdst" path="res://Tilesets/Grid/actor.png" id="1_yrttn"]
-[ext_resource type="Texture2D" uid="uid://crfn16dyw7dk7" path="res://Tilesets/Grid/obstacle.png" id="2_kn0ql"]
+[ext_resource type="Texture2D" uid="uid://budhswdr4tvsm" path="res://Tilesets/Grid/obstacle.png" id="2_kn0ql"]
 [ext_resource type="Texture2D" uid="uid://bjjgqeri21xjr" path="res://Tilesets/Grid/object.png" id="3_0jn3y"]
 
 [node name="Node2D" type="Node2D"]

@@ -3,6 +3,7 @@ extends TileMap
 enum { EMPTY = -1, ACTOR, OBSTACLE , OBJECT, BORDER  }
 
 func _ready():
+	add_to_group("grid")
 	for child in get_children():
 		set_cell(0, local_to_map(to_local(child.position)), 0, Vector2i(0, 0), child.type) 
 		#For TileSetScenesCollectionSource, atlas_coords should always be Vector2i(0, 0)

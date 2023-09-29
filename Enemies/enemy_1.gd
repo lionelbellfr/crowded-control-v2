@@ -1,12 +1,15 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var direction = Vector2.RIGHT
 @onready var hurtbox = $HurtBox
 
+static var rush_mode = false
+
 var signaler_node
 
 var spaceship 
-var move_speed = 600
+var move_speed = 60
 var move_speed_x = 60
 var tile_size = 32
 var offset = 64
