@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dblkutuj2lbxw"]
+[gd_scene load_steps=7 format=3 uid="uid://dblkutuj2lbxw"]
 
 [ext_resource type="Texture2D" uid="uid://c0y6t2pftrpqk" path="res://Pawns/Sprites/character_grey.png" id="1_4woow"]
 [ext_resource type="Script" path="res://Enemies/enemy_1.gd" id="1_dfrxf"]
 [ext_resource type="Script" path="res://Enemies/HurtBox.gd" id="2_demhe"]
+[ext_resource type="AudioStream" uid="uid://dpeus0j2oqxob" path="res://sounds/enemyExplosion.wav" id="4_3ety4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsm6t"]
 size = Vector2(66, 66)
@@ -31,3 +32,6 @@ debug_color = Color(0.819608, 0.278431, 0.741176, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4woow")
+
+[node name="EnemyExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3ety4")

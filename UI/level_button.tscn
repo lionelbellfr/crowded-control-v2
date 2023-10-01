@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtx3pbnumkpqm"]
+[gd_scene load_steps=3 format=3 uid="uid://dtx3pbnumkpqm"]
 
 [ext_resource type="Script" path="res://LevelButton.gd" id="1_0m2hw"]
+[ext_resource type="AudioStream" uid="uid://2gksvjehc8ra" path="res://sounds/clickButton.wav" id="2_ctqau"]
 
 [node name="LevelButton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Level"
 script = ExtResource("1_0m2hw")
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ctqau")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://crec17ay4ikq7"]
+
+[ext_resource type="StyleBox" uid="uid://cuqtsond65xln" path="res://Themes/subthemes/hover_button_pink.tres" id="1_d2m86"]
+[ext_resource type="StyleBox" uid="uid://dqrl3tgds8bxc" path="res://Themes/subthemes/normal2_button_pink.tres" id="2_umx0d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4cse"]
+bg_color = Color(0.756863, 0.270588, 0.254902, 1)
+border_width_bottom = 5
+border_color = Color(0.52549, 0.168627, 0.156863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0eo2"]
+bg_color = Color(0.337255, 0.556863, 0.65098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[resource]
+Button/styles/hover = ExtResource("1_d2m86")
+Button/styles/normal = ExtResource("2_umx0d")
+Button/styles/pressed = SubResource("StyleBoxFlat_y4cse")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_s0eo2")

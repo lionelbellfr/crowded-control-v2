@@ -6,5 +6,6 @@ extends Control
 
 func _process(delta):
 	label_enemies.text = "Remaining Enemies: " + String.num_int64(spawner_node.num_defeated_enemies) + "/" + String.num_int64(spawner_node.enemies_to_spawn)
-	
+	label_enemies.add_theme_font_size_override("font_size", 40)
 	label_health.text = "Health: " + String.num_int64(spawner_node.spaceship_health)
+	label_health.add_theme_font_size_override("font_size", 40)

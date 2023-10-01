@@ -10,10 +10,25 @@ config_version=5
 
 [application]
 
-config/name="Crowded Control v2"
+config/name="Crowded Control 1.0"
 run/main_scene="res://levels/level_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://logo_cc.svg"
+
+[autoload]
+
+Screen="*res://screen.gd"
+Save="*res://save_script.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom="res://Themes/button_theme.tres"
 
 [input]
 

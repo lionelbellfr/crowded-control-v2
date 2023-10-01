@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm1qar2tihfrn"]
+[gd_scene load_steps=3 format=3 uid="uid://dm1qar2tihfrn"]
 
 [ext_resource type="Script" path="res://LevelEndScreen.gd" id="1_4dhlx"]
+[ext_resource type="AudioStream" uid="uid://2gksvjehc8ra" path="res://sounds/clickButton.wav" id="2_sprl6"]
 
 [node name="LevelEndScreen" type="Control"]
 process_mode = 3
@@ -97,6 +98,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 26
 text = "Quit to Main Menu"
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sprl6")
 
 [connection signal="pressed" from="WinScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonNext" to="." method="_on_button_next_pressed"]
 [connection signal="pressed" from="WinScreen/PanelContainer/MarginContainer/VBoxContainer/ButtonWinQuit" to="." method="_on_button_win_quit_pressed"]

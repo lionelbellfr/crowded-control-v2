@@ -3,7 +3,7 @@ extends Control
 const LEVEL_BTN = preload("res://UI/level_button.tscn")
 @export_dir var dir_path
 
-@onready var grid = $ColorRect/MarginContainer/VBoxContainer/GridContainer
+@onready var grid = $ColorRect/MarginContainer/VBoxContainer
 func _ready() -> void:
 	get_levels(dir_path)
 
@@ -27,6 +27,8 @@ func create_level_btn(lvl_path, lvl_name):
 	var btn = LEVEL_BTN.instantiate()
 	btn.text = lvl_name.trim_suffix('.tscn').replace("_", " ")
 	btn.level_path = lvl_path
+	btn.custom_minimum_size = Vector2(180, 60)
+	btn.add_theme_font_size_override("font_size", 40)
 	grid.add_child(btn)
 
 

@@ -10,7 +10,7 @@ signal lost_spaceship
 
 var remaining_enemies = 0
 var num_defeated_enemies = 0
-var spaceship_health = 3
+var spaceship_health = 10
 
 static var rush_mode = false
 

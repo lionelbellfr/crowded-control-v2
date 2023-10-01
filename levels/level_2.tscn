@@ -47,6 +47,13 @@ sources/1 = SubResource("TileSetScenesCollectionSource_pjb5l")
 [node name="level2" type="Node"]
 process_mode = 3
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1359.0
+offset_top = -809.0
+offset_right = 2565.0
+offset_bottom = 1522.0
+color = Color(0.188235, 0.372549, 0.447059, 1)
+
 [node name="TileMap" type="TileMap" parent="."]
 process_mode = 1
 tile_set = SubResource("TileSet_0g0h6")
@@ -80,22 +87,24 @@ enemies_to_spawn = 20
 [node name="PauseMenu" parent="." instance=ExtResource("14_0xpiw")]
 process_mode = 3
 visible = false
+offset_left = -574.0
+offset_top = -416.0
 mouse_filter = 1
 
 [node name="LevelInterface" parent="." instance=ExtResource("15_u0h1a")]
-offset_left = -574.0
-offset_top = -328.0
-offset_right = -574.0
-offset_bottom = -328.0
+offset_left = -1359.0
+offset_top = -690.0
+offset_right = -1370.0
+offset_bottom = -749.0
 scale = Vector2(1.99834, 1.99834)
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="LevelEndScreen" parent="." instance=ExtResource("16_l0f03")]
 visible = false
 z_index = 3
-offset_left = -574.0
-offset_top = -328.0
-offset_right = -574.0
-offset_bottom = -328.0
+offset_left = -1274.0
+offset_top = -809.0
+offset_right = -1274.0
+offset_bottom = -809.0
 scale = Vector2(1.99929, 1.99929)
 mouse_filter = 1

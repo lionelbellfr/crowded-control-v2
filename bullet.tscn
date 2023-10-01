@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbbgkj51uh2l5"]
+[gd_scene load_steps=7 format=3 uid="uid://dbbgkj51uh2l5"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_u4afy"]
 [ext_resource type="Script" path="res://HitBox.gd" id="2_bulw5"]
+[ext_resource type="AudioStream" uid="uid://5f7r0l2ds83x" path="res://sounds/normalLaserShoot.wav" id="3_qosqo"]
+[ext_resource type="AudioStream" uid="uid://ddmgvo0hqnx2g" path="res://sounds/laserShootRush.wav" id="4_aafd8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rle2t"]
 size = Vector2(24, 20)
@@ -41,5 +43,11 @@ polygon = PackedVector2Array(24, 16, 40, 16, 56, 32, 40, 48, 24, 48)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NormalBulletAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qosqo")
+
+[node name="RushBulletAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_aafd8")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

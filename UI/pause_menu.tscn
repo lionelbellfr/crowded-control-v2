@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjv0maktpovag"]
+[gd_scene load_steps=3 format=3 uid="uid://bjv0maktpovag"]
 
 [ext_resource type="Script" path="res://UI/pause_menu.gd" id="1_vertn"]
+[ext_resource type="AudioStream" uid="uid://2gksvjehc8ra" path="res://sounds/clickButton.wav" id="2_2h8bx"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -54,6 +55,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 26
 text = "Quit"
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2h8bx")
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonResume" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonResume" to="." method="_on_button_resume_pressed"]
